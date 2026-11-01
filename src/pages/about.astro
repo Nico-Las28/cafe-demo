@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const values = [
+  { title: "Frisch", text: "Kuchen und Croissants backen wir jeden Morgen selbst." },
+  { title: "Regional", text: "Kaffee aus einer Berliner Rösterei, Milch vom Hof in Brandenburg." },
+  { title: "Gemütlich", text: "Ein Ort zum Ankommen, mit WLAN, Sofaecke und Platz für Hunde." },
+];
+---
+<Layout title="Über uns · Café Nico">
+  <h1 class="text-3xl md:text-5xl font-bold mb-8">Über uns</h1>
+
+  <section class="grid gap-8 md:grid-cols-2 md:items-center mb-12">
+    <img
+      src="src/images/cafe.jpg"
+      alt="Innenraum des Café Nico mit Holztischen und Pflanzen"
+      class="w-full h-64 md:h-80 object-cover rounded-xl"
+    />
+    <div class="flex flex-col gap-4">
+      <h2 class="text-2xl font-bold">Unsere Geschichte</h2>
+      <p class="text-stone-600">
+        Café Nico hat 2021 als kleiner Kaffeestand angefangen. Heute sind wir ein
+        Café mitten im Kiez, in dem man genauso gut frühstücken wie arbeiten kann.
+      </p>
+      <p class="text-stone-600">
+        Wir glauben, dass guter Kaffee keine Wissenschaft sein muss: gute Bohnen,
+        frische Milch und ein bisschen Zeit.
+      </p>
+    </div>
+  </section>
+
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold mb-4">Wofür wir stehen</h2>
+    <div class="grid gap-4 md:grid-cols-3">
+      {values.map((value) => (
+        <div class="bg-white rounded-xl shadow-sm p-5">
+          <h3 class="font-semibold text-xl pb-24">{value.title}</h3>
+          <p class="text-sm text-stone-600">{value.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-stone-800 text-white rounded-xl p-6 md:p-8 text-center">
+    <h2 class="text-2xl font-bold mb-2">Lust auf einen Kaffee?</h2>
+    <p class="text-stone-300 mb-4">Schau dir unsere Speisekarte an oder komm einfach vorbei.</p>
+    <a href="/menu" class="inline-block bg-amber-600 hover:bg-amber-700 px-6 py-3 rounded-full font-semibold">
+      Zur Speisekarte
+    </a>
+  </section>
+</Layout>

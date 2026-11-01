@@ -1,0 +1,23 @@
+<header class="bg-stone-800 text-white p-4">
+  <div class="flex justify-between items-center">
+    <a href="/" class="text-2xl font-bold">Café Nico</a>
+    <nav id="nav" class="hidden md:flex gap-8 text-xl">
+    <a class="hover:translate-y-0.5 transition-transform duration-300" href="/">Home</a>
+    <a class="hover:translate-y-0.5 transition-transform duration-300" href="/menu">Menu</a>
+    <a class="hover:translate-y-0.5 transition-transform duration-300" href="/about">About</a>
+    <a class="hover:translate-y-0.5 transition-transform duration-300" href="/contact">Contact</a>
+  </nav>
+    <button id="menu-btn" class="md:hidden text-2xl">☰</button>
+  </div>
+
+</header>
+
+<script>
+  const btn = document.querySelector("#menu-btn");
+  const nav = document.querySelector("#nav");
+
+  btn.addEventListener("click", () => {
+    nav.classList.toggle("hidden");
+    nav.classList.toggle("flex");
+  });
+</script>

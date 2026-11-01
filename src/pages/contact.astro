@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const hours = [
+  { days: "Mo – Fr", time: "8:00 – 18:00" },
+  { days: "Sa", time: "9:00 – 18:00" },
+  { days: "So", time: "10:00 – 16:00" },
+];
+---
+<Layout title="Kontakt · Café Nico">
+  <h1 class="text-3xl md:text-5xl font-bold mb-2">Kontakt</h1>
+  <p class="text-stone-600 mb-8">Fragen, Reservierungen oder Feedback? Schreib uns!</p>
+
+  <div class="grid gap-8 md:grid-cols-2">
+    <form
+      action="https://formspree.io/f/DEINE-FORM-ID"
+      method="POST"
+      class="bg-white rounded-xl shadow-sm p-6 flex flex-col gap-4"
+    >
+      <label class="flex flex-col gap-1">
+        <span class="font-medium">Name</span>
+        <input type="text" name="name" required class="border border-stone-300 rounded-lg p-2" />
+      </label>
+
+      <label class="flex flex-col gap-1">
+        <span class="font-medium">E-Mail</span>
+        <input type="email" name="email" required class="border border-stone-300 rounded-lg p-2" />
+      </label>
+
+      <label class="flex flex-col gap-1">
+        <span class="font-medium">Nachricht</span>
+        <textarea name="message" rows="5" required class="border border-stone-300 rounded-lg p-2"></textarea>
+      </label>
+
+      <p class="text-xs text-stone-500">
+        Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer
+        <a href="/datenschutz" class="underline">Datenschutzerklärung</a> zu.
+      </p>
+
+      <button type="submit" class="cursor-pointer bg-amber-600 hover:bg-amber-700 transition-colors duration-200 text-white font-semibold py-3 rounded-full">
+        Nachricht senden
+      </button>
+    </form>
+
+    <div class="flex flex-col gap-6">
+      <div class="bg-white rounded-xl shadow-sm p-6">
+        <h2 class="text-xl font-bold mb-2">Adresse</h2>
+        <p>Café Nico<br />Musterstraße 1<br />10115 Berlin</p>
+        <p class="mt-2">
+          Tel. <a href="tel:+4930123456" class="underline">030 123456</a>
+        </p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-sm p-6">
+        <h2 class="text-xl font-bold mb-2">Öffnungszeiten</h2>
+        <ul class="flex flex-col gap-1">
+          {hours.map((h) => (
+            <li class="flex justify-between">
+              <span>{h.days}</span>
+              <span>{h.time}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

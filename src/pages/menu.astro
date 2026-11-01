@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MenuCard from "../components/MenuCard.astro";
+
+const menu = [
+  { name: "Espresso", price: 2.2, category: "drink", vegan: true, description: "Kräftig, aus Bohnen einer Berliner Rösterei." },
+  { name: "Cappuccino", price: 3.2, category: "drink", vegan: false, description: "Mit cremigem Milchschaum." },
+  { name: "Oat Latte", price: 3.9, category: "drink", vegan: true, description: "Mit Hafermilch." },
+  { name: "Hausgemachte Limonade", price: 3.5, category: "drink", vegan: true, description: "Zitrone und Minze, je nach Saison." },
+  { name: "Croissant", price: 2.5, category: "food", vegan: false, description: "Frisch gebacken, jeden Morgen." },
+  { name: "Banana Bread", price: 3.0, category: "food", vegan: true, description: "Saftig, mit Walnüssen." },
+  { name: "Käsekuchen", price: 3.8, category: "food", vegan: false, description: "Nach Omas Rezept." },
+  { name: "Avocado-Toast", price: 7.5, category: "food", vegan: true, description: "Auf Sauerteigbrot mit Chili und Limette." },
+];
+
+const drinks = menu.filter((item) => item.category === "drink");
+const food = menu.filter((item) => item.category === "food");
+---
+<Layout title="Speisekarte · Café Nico">
+  <h1 class="text-3xl md:text-5xl font-bold mb-2">Speisekarte</h1>
+  <p class="text-stone-600 mb-8">Alles frisch, vieles vegan.</p>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold mb-4">Getränke</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      {drinks.map((item) => (
+        <MenuCard name={item.name} price={item.price} description={item.description} vegan={item.vegan} />
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold mb-4">Speisen</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      {food.map((item) => (
+        <MenuCard name={item.name} price={item.price} description={item.description} vegan={item.vegan} />
+      ))}
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,15 @@
+---
+const { name, price, description, vegan } = Astro.props;
+---
+<div class="bg-white rounded-xl shadow-sm p-4 flex flex-col gap-1">
+  <div class="flex justify-between items-start gap-4">
+    <h3 class="font-semibold text-lg">{name}</h3>
+    <span class="font-semibold whitespace-nowrap">{price.toFixed(2)} €</span>
+  </div>
+  {description && <p class="text-sm text-stone-600">{description}</p>}
+  {vegan && (
+    <span class="self-start mt-1 text-xs font-medium bg-green-100 text-green-800 px-2 py-0.5 rounded-full">
+      Vegan
+    </span>
+  )}
+</div>
